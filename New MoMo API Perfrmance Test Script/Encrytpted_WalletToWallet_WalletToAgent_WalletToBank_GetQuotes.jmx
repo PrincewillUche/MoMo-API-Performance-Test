@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <RecordingController guiclass="RecordController" testclass="RecordingController" testname="Recording Controller - Wallet to Wallet" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Wallet to Wallet- Get Quote" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;requestBody&quot;:&quot;LtwCswgdbwtDyuB1yrY5vVyqByZB/PpthKFxXIn1By0EyCCFZ0Ni+pjSfaxXTtnj91RrAUCS6vTc+V9sdh2gh0Vc1kqylkeXAayReF3rf8OiaE1+8fhn03V9yblPNZvukxFrYDUGX7BJawUWyu+cUpman9r1UIn/SoLzZbYehcRPFyk2Wra/u/5O1t1AwTnRt3mjY/68nmcIEPgJSy8y2CdBkJ9T6nlTH4/cp2goS/q5vgWaJHt1yFYxSldxxhMO55iIF/S9RZtI3lNb7UAtiQ==&quot;&#xd;
+}&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">momongapp.mtn.ng</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/v1/momo/transfer/peer-to-peer</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Authorization" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InJibkxaMy1PM1BPd09pQ3JTOXJBcSJ9.eyJodHRwczovL215bXRuLmNvbS9sb2dpbkNvdW50IjoyNywiaHR0cHM6Ly9teW10bi5jb20vdXNlck1ldGFEYXRhIjp7Imt5YyI6eyJkYXRlT2ZCaXJ0aCI6IjE5ODYwNzI5IiwiZ2VuZGVyIjoiTSIsImZpcnN0TmFtZSI6IkxBTUlOQVJBWUFOQVNXQU1ZIiwibGFzdE5hbWUiOiJUSEFNTUFSQVBVIiwibmF0aW9uYWxpdHkiOiJJTkQiLCJwaG9uZU51bWJlciI6IjgxNjY2MzUyNTUifSwiZmlyc3RfbmFtZSI6IkxBTUlOQVJBWUFOQVNXQU1ZIiwibXNpc2RuIjoiMjM0ODE2NjYzNTI1NSIsIm5pY2tfbmFtZSI6IkxheG1hbiIsInRlcm1zX2FjY2VwdGVkIjoidHJ1ZSIsImludGVyc3RpdGlhbF9kYXRlIjoiMjAyMzA3MjQiLCJsaW5rZWROdW1iZXIiOiIrMjM0ODE2Njg0ODU1NiIsImxpbmtlZE51bWJlclN0YXR1cyI6ZmFsc2UsImJpbyI6IiIsInBpYyI6Imh0dHBzOi8vbWFnZW50b2Vjb21tZXJjZXByb2QubXRubmlnZXJpYS5uZXQvbWVkaWEvbXRuL3Byb2ZpbGUvaW1nXzE2ODYwNTk3MTEuanBnIiwidG91ckFwcERpc3BsYXkiOmZhbHNlfSwiaHR0cHM6Ly9teW10bi5jb20vc2Vjb25kYXJ5UHJvZmlsZSI6W3sidXNlcl9pZCI6IjY0NzVlNDFiODYyOWMyMjAwOTZlMjZhZCIsInByb3ZpZGVyIjoic21zIiwiY29ubmVjdGlvbiI6InNtcyIsImlzU29jaWFsIjpmYWxzZX1dLCJodHRwczovL215bXRuLmNvbS9waG9uZV9udW1iZXIiOiIrMjM0ODE2NjYzNTI1NSIsImlzcyI6Imh0dHBzOi8vYXV0aC5tdG5vbmxpbmUuY29tLyIsInN1YiI6InNtc3w2NDc1ZTQxYjg2MjljMjIwMDk2ZTI2YWQiLCJhdWQiOlsiTmV4dEdlbkFQSSIsImh0dHBzOi8vbXRubmctcHJvZC5tdG4uYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTY5MDg4NjU0MiwiZXhwIjoxNjkwODkwMTQyLCJhenAiOiJXTzVCYlR5RVdMU0Z2RlB3NVRzWW9pb1RRcWNxOE1xMyIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwgb2ZmbGluZV9hY2Nlc3MiLCJndHkiOiJwYXNzd29yZCJ9.Lv43JqyK8hKsOcp-60ptNw4B2TbTVBhtK7wVRbScs9QSVIdsHIHcfy3m-y0MwskEn151P3senl7v6ugdgq-MD0Y9XN292rNLwsHuNlBSTzphl-c43Gz6kzt185O34r6FdAEDCfN293TCatAR2kOwGb7-L63e0HA0RCTsNbyElhQHAGSFU7WxB10Ym9umdqrWGDNa6EHow_eFPq4tTov5pZWXpY5mQng8knRl1p9xSXhCaUS9TqUxKgGtMtWkdjz6eUx8rfJVEfvqBH0TfqjuowsMoS54tGL3pG9cXTtFEuQqh-FGrXrE6xtynbHuXXN7rYHvOfO-6fWu0nZS__wrGA</stringProp>
+                </elementProp>
+                <elementProp name="ignoreexpirycheck" elementType="Header">
+                  <stringProp name="Header.name">ignoreexpirycheck</stringProp>
+                  <stringProp name="Header.value">true</stringProp>
+                </elementProp>
+                <elementProp name="Postman-Token" elementType="Header">
+                  <stringProp name="Header.name">Postman-Token</stringProp>
+                  <stringProp name="Header.value">95889589-627c-4be8-a026-5e647b41b171</stringProp>
+                </elementProp>
+                <elementProp name="channel" elementType="Header">
+                  <stringProp name="Header.name">channel</stringProp>
+                  <stringProp name="Header.value">MTNAPPNXG</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                </elementProp>
+                <elementProp name="transactionId" elementType="Header">
+                  <stringProp name="Header.name">transactionId</stringProp>
+                  <stringProp name="Header.value">6918567022280295225756026006</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">PostmanRuntime/7.33.0</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">*/*</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <RecordingController guiclass="RecordController" testclass="RecordingController" testname="Recording Controller - Transfer to Agent " enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Transfer to Agent - Get Quote" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;requestBody&quot;:&quot;o8d1mfzYqpczFUbwfwZjDe2Tj3X/H0vSmN+ZzvH210BFiMa7RM54eTCWX5c4yiwhNLU4TClVAhVUIk1bsnIWNHNc+FrerCqW7AvQQo4TEDPZy515IRLK1mw5sngVD7jf1jRS6JlsFOaUaykw53504WdP1X7JaKxEvmxpm9wDrZ7npF1SvDpivZ5+uGL66/vWgkBE/yOvuos6z0/dhi8VP/nNbNL3Os4tRmZCN1tGaUzLQsGUfF8vi/O6NowD5W7W4GVyz1o9btwtelAE/lbDwR3eL4zrstzpERkS6t4WERqeKljzZaGuRXPxd83BQWpN&quot;&#xd;
+}&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">momongapp.mtn.ng</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/v1/momo/transfer/peer-to-agent</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Authorization" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InJibkxaMy1PM1BPd09pQ3JTOXJBcSJ9.eyJodHRwczovL215bXRuLmNvbS9sb2dpbkNvdW50IjoyNywiaHR0cHM6Ly9teW10bi5jb20vdXNlck1ldGFEYXRhIjp7Imt5YyI6eyJkYXRlT2ZCaXJ0aCI6IjE5ODYwNzI5IiwiZ2VuZGVyIjoiTSIsImZpcnN0TmFtZSI6IkxBTUlOQVJBWUFOQVNXQU1ZIiwibGFzdE5hbWUiOiJUSEFNTUFSQVBVIiwibmF0aW9uYWxpdHkiOiJJTkQiLCJwaG9uZU51bWJlciI6IjgxNjY2MzUyNTUifSwiZmlyc3RfbmFtZSI6IkxBTUlOQVJBWUFOQVNXQU1ZIiwibXNpc2RuIjoiMjM0ODE2NjYzNTI1NSIsIm5pY2tfbmFtZSI6IkxheG1hbiIsInRlcm1zX2FjY2VwdGVkIjoidHJ1ZSIsImludGVyc3RpdGlhbF9kYXRlIjoiMjAyMzA3MjQiLCJsaW5rZWROdW1iZXIiOiIrMjM0ODE2Njg0ODU1NiIsImxpbmtlZE51bWJlclN0YXR1cyI6ZmFsc2UsImJpbyI6IiIsInBpYyI6Imh0dHBzOi8vbWFnZW50b2Vjb21tZXJjZXByb2QubXRubmlnZXJpYS5uZXQvbWVkaWEvbXRuL3Byb2ZpbGUvaW1nXzE2ODYwNTk3MTEuanBnIiwidG91ckFwcERpc3BsYXkiOmZhbHNlfSwiaHR0cHM6Ly9teW10bi5jb20vc2Vjb25kYXJ5UHJvZmlsZSI6W3sidXNlcl9pZCI6IjY0NzVlNDFiODYyOWMyMjAwOTZlMjZhZCIsInByb3ZpZGVyIjoic21zIiwiY29ubmVjdGlvbiI6InNtcyIsImlzU29jaWFsIjpmYWxzZX1dLCJodHRwczovL215bXRuLmNvbS9waG9uZV9udW1iZXIiOiIrMjM0ODE2NjYzNTI1NSIsImlzcyI6Imh0dHBzOi8vYXV0aC5tdG5vbmxpbmUuY29tLyIsInN1YiI6InNtc3w2NDc1ZTQxYjg2MjljMjIwMDk2ZTI2YWQiLCJhdWQiOlsiTmV4dEdlbkFQSSIsImh0dHBzOi8vbXRubmctcHJvZC5tdG4uYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTY5MDg4NjU0MiwiZXhwIjoxNjkwODkwMTQyLCJhenAiOiJXTzVCYlR5RVdMU0Z2RlB3NVRzWW9pb1RRcWNxOE1xMyIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwgb2ZmbGluZV9hY2Nlc3MiLCJndHkiOiJwYXNzd29yZCJ9.Lv43JqyK8hKsOcp-60ptNw4B2TbTVBhtK7wVRbScs9QSVIdsHIHcfy3m-y0MwskEn151P3senl7v6ugdgq-MD0Y9XN292rNLwsHuNlBSTzphl-c43Gz6kzt185O34r6FdAEDCfN293TCatAR2kOwGb7-L63e0HA0RCTsNbyElhQHAGSFU7WxB10Ym9umdqrWGDNa6EHow_eFPq4tTov5pZWXpY5mQng8knRl1p9xSXhCaUS9TqUxKgGtMtWkdjz6eUx8rfJVEfvqBH0TfqjuowsMoS54tGL3pG9cXTtFEuQqh-FGrXrE6xtynbHuXXN7rYHvOfO-6fWu0nZS__wrGA</stringProp>
+                </elementProp>
+                <elementProp name="ignoreexpirycheck" elementType="Header">
+                  <stringProp name="Header.name">ignoreexpirycheck</stringProp>
+                  <stringProp name="Header.value">true</stringProp>
+                </elementProp>
+                <elementProp name="Postman-Token" elementType="Header">
+                  <stringProp name="Header.name">Postman-Token</stringProp>
+                  <stringProp name="Header.value">5a17396e-4f8d-4c5f-964e-8df8303d7561</stringProp>
+                </elementProp>
+                <elementProp name="channel" elementType="Header">
+                  <stringProp name="Header.name">channel</stringProp>
+                  <stringProp name="Header.value">MTNAPPNXG</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                </elementProp>
+                <elementProp name="transactionId" elementType="Header">
+                  <stringProp name="Header.name">transactionId</stringProp>
+                  <stringProp name="Header.value">9226351597124145335032250187</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">PostmanRuntime/7.33.0</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">*/*</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <RecordingController guiclass="RecordController" testclass="RecordingController" testname="Recording Controller - Wallet to Bank" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Wallet to Bank - Get Quote" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;requestBody&quot;:&quot;aqRK0toTd7kcUa+jWjEDulB7KY3PE3t2Eio5vuoJnQe19aQ5tsHbUVhZABUwHLG2zued2JFqC1HmjLHFHNVG46XaTZWUkRIeOpp6Fy1DJI9PwUNnlKsv67s38UY2C0nxVgyvmhi3NAe5ygB4h+f+NhsGIntO2I4MeNCMHYvNJTffgKDkwgHIvxgbRKqoIyPNyRpxZ8kZXNxQo05CMrxfqMPQpvtX+MF3Z1q+NqE/kCrgxEtaUVIfV3eAxnVYLAET5vZPOz6NG5TsJzVLzjvTqtFXZ68kyGokxtOKHQrzUFugDrGXFXQKSQqSpp7c0SN/qUVV4FQ5slCWK4rKenFQf6fsShxkL9GkjjV3PaZOKa4EAg4+2gvRLbxeEIZ7YSTluAGKfK899niMD/e4x+hrREAbdL4dzee9ik5n/5Qu3dsXkgS8tn+WpcZtl4ZPKCNnJH1zC02CABm6r6KX8ygHB1mUU0z3srDUDv38qfjWWmREAm+MXa7jT9UbGaN9laidSL0aEgbbTH0szzCVEsGLt/VbltIDJ35uNAhkRDwMO8vmw/OJ7+SHQjHEKS5NDEBBczJedKlHIIIIHRAJK7C4ye8atCo8PXeqjCC/t2BOJ67KkZa193IyB/xIjyGgjpxUvgTHLiBLsUpYJhbpHWLBnRi/k5jE7u46K2cSOSxj3VW0ZMqi4yDTy/zD3SslmwccdRg3W35O5OUPhHTqCuaVO3KORD7r+XpAr7LmaQV8vUlJ9bVyvMozys/OZ7/4JFOzL20Tz6SYeO91+cbfOLhqPCuEs1mgmj0I9H4u46N5hLcIzSfLMJ5uo7jARX7C629f+W4rMk2SzppKsG9QB6NxXmklI9n1Y/adr7q1kIOQveWgM9t9q4NOlqrhsdnd1xoSUFkDdrRn39GTIHKr30N1CEqea0XlDeCVrwKbkmnHprUyayXJ2nsRyqiJJG48DaItLNsMb11Dpb3hegSXv57AsP+xOnuBqmXxhiJRKT6itptZVgbsA6ObScuQgg46EORujY8KoK0n2hnvkGybet/Xgg08+kYPi+prrbN9Kfku3H5L33Ju3tuBcYKfOPwWO6QABJ4nx+Q85zZwJ5oGDFojBhOHXogH22URMrGMIhljIn4=&quot;&#xd;
+}&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+&#xd;
+</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">momongapp.mtn.ng</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/v1/momo/transfer/wallet-to-bank</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Authorization" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InJibkxaMy1PM1BPd09pQ3JTOXJBcSJ9.eyJodHRwczovL215bXRuLmNvbS9sb2dpbkNvdW50IjoyNywiaHR0cHM6Ly9teW10bi5jb20vdXNlck1ldGFEYXRhIjp7Imt5YyI6eyJkYXRlT2ZCaXJ0aCI6IjE5ODYwNzI5IiwiZ2VuZGVyIjoiTSIsImZpcnN0TmFtZSI6IkxBTUlOQVJBWUFOQVNXQU1ZIiwibGFzdE5hbWUiOiJUSEFNTUFSQVBVIiwibmF0aW9uYWxpdHkiOiJJTkQiLCJwaG9uZU51bWJlciI6IjgxNjY2MzUyNTUifSwiZmlyc3RfbmFtZSI6IkxBTUlOQVJBWUFOQVNXQU1ZIiwibXNpc2RuIjoiMjM0ODE2NjYzNTI1NSIsIm5pY2tfbmFtZSI6IkxheG1hbiIsInRlcm1zX2FjY2VwdGVkIjoidHJ1ZSIsImludGVyc3RpdGlhbF9kYXRlIjoiMjAyMzA3MjQiLCJsaW5rZWROdW1iZXIiOiIrMjM0ODE2Njg0ODU1NiIsImxpbmtlZE51bWJlclN0YXR1cyI6ZmFsc2UsImJpbyI6IiIsInBpYyI6Imh0dHBzOi8vbWFnZW50b2Vjb21tZXJjZXByb2QubXRubmlnZXJpYS5uZXQvbWVkaWEvbXRuL3Byb2ZpbGUvaW1nXzE2ODYwNTk3MTEuanBnIiwidG91ckFwcERpc3BsYXkiOmZhbHNlfSwiaHR0cHM6Ly9teW10bi5jb20vc2Vjb25kYXJ5UHJvZmlsZSI6W3sidXNlcl9pZCI6IjY0NzVlNDFiODYyOWMyMjAwOTZlMjZhZCIsInByb3ZpZGVyIjoic21zIiwiY29ubmVjdGlvbiI6InNtcyIsImlzU29jaWFsIjpmYWxzZX1dLCJodHRwczovL215bXRuLmNvbS9waG9uZV9udW1iZXIiOiIrMjM0ODE2NjYzNTI1NSIsImlzcyI6Imh0dHBzOi8vYXV0aC5tdG5vbmxpbmUuY29tLyIsInN1YiI6InNtc3w2NDc1ZTQxYjg2MjljMjIwMDk2ZTI2YWQiLCJhdWQiOlsiTmV4dEdlbkFQSSIsImh0dHBzOi8vbXRubmctcHJvZC5tdG4uYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTY5MDg4NjU0MiwiZXhwIjoxNjkwODkwMTQyLCJhenAiOiJXTzVCYlR5RVdMU0Z2RlB3NVRzWW9pb1RRcWNxOE1xMyIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwgb2ZmbGluZV9hY2Nlc3MiLCJndHkiOiJwYXNzd29yZCJ9.Lv43JqyK8hKsOcp-60ptNw4B2TbTVBhtK7wVRbScs9QSVIdsHIHcfy3m-y0MwskEn151P3senl7v6ugdgq-MD0Y9XN292rNLwsHuNlBSTzphl-c43Gz6kzt185O34r6FdAEDCfN293TCatAR2kOwGb7-L63e0HA0RCTsNbyElhQHAGSFU7WxB10Ym9umdqrWGDNa6EHow_eFPq4tTov5pZWXpY5mQng8knRl1p9xSXhCaUS9TqUxKgGtMtWkdjz6eUx8rfJVEfvqBH0TfqjuowsMoS54tGL3pG9cXTtFEuQqh-FGrXrE6xtynbHuXXN7rYHvOfO-6fWu0nZS__wrGA</stringProp>
+                </elementProp>
+                <elementProp name="ignoreexpirycheck" elementType="Header">
+                  <stringProp name="Header.name">ignoreexpirycheck</stringProp>
+                  <stringProp name="Header.value">true</stringProp>
+                </elementProp>
+                <elementProp name="Postman-Token" elementType="Header">
+                  <stringProp name="Header.name">Postman-Token</stringProp>
+                  <stringProp name="Header.value">6da89b42-e66f-40a2-a678-11eccc69d611</stringProp>
+                </elementProp>
+                <elementProp name="channel" elementType="Header">
+                  <stringProp name="Header.name">channel</stringProp>
+                  <stringProp name="Header.value">MTNAPPNXG</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                </elementProp>
+                <elementProp name="transactionId" elementType="Header">
+                  <stringProp name="Header.name">transactionId</stringProp>
+                  <stringProp name="Header.value">0819996126690225431473892303</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">PostmanRuntime/7.33.0</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">*/*</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ProxyControl guiclass="ProxyControlGui" testclass="ProxyControl" testname="HTTP(S) Test Script Recorder" enabled="false">
+        <stringProp name="ProxyControlGui.port">8888</stringProp>
+        <collectionProp name="ProxyControlGui.exclude_list"/>
+        <collectionProp name="ProxyControlGui.include_list"/>
+        <boolProp name="ProxyControlGui.capture_http_headers">true</boolProp>
+        <intProp name="ProxyControlGui.grouping_mode">0</intProp>
+        <boolProp name="ProxyControlGui.add_assertion">false</boolProp>
+        <stringProp name="ProxyControlGui.sampler_type_name"></stringProp>
+        <boolProp name="ProxyControlGui.sampler_redirect_automatically">false</boolProp>
+        <boolProp name="ProxyControlGui.sampler_follow_redirects">true</boolProp>
+        <boolProp name="ProxyControlGui.use_keepalive">true</boolProp>
+        <boolProp name="ProxyControlGui.detect_graphql_request">true</boolProp>
+        <boolProp name="ProxyControlGui.sampler_download_images">false</boolProp>
+        <intProp name="ProxyControlGui.proxy_http_sampler_naming_mode">0</intProp>
+        <stringProp name="ProxyControlGui.default_encoding"></stringProp>
+        <stringProp name="ProxyControlGui.proxy_prefix_http_sampler_name">Wallet to bank - Get Quote</stringProp>
+        <stringProp name="ProxyControlGui.proxy_pause_http_sampler"></stringProp>
+        <boolProp name="ProxyControlGui.notify_child_sl_filtered">false</boolProp>
+        <boolProp name="ProxyControlGui.regex_match">false</boolProp>
+        <stringProp name="ProxyControlGui.content_type_include"></stringProp>
+        <stringProp name="ProxyControlGui.content_type_exclude"></stringProp>
+      </ProxyControl>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
